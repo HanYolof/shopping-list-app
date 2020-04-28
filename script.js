@@ -25,52 +25,41 @@ function removeParent(evt) {
    evt.target.parentNode.remove();
 }
 
-// This adds Delete to the existing "li" elements
+// Delete button in function - better way - UNDER CONSTRUCTION
+
+function delBtn() {
+	btn = document.createElement("button");
+	btn.innerHTML = "Delete";
+	btn.onclick = removeParent;
+	return btn;
+}
+
+// Add delete button for each existing li
 
 li.forEach(function(delbtn){
 
-	var btn = document.createElement("button");
-	btn.innerHTML = "Delete";
-	btn.onclick = removeParent;
-	delbtn.appendChild(btn);
+	delButton = delBtn();
+	delbtn.appendChild(delButton);
 })
-
-// Delete button in function - better way - UNDER CONSTRUCTION
-
-// function delBtn() {
-// 	var btn = document.createElement("button");
-// 	btn.innerHTML = "Delete";
-// 	btn.onclick = removeParent;
-// 	ul.appendChild(btn);
-// }
-
-// li.forEach(function(){
-// 	delBtn();
-// })
 
 // Create li element from form data, add button and attach to ul
 
 function createListElement() {
 
-	// Create button
-	
-	var btn = document.createElement("button");
-	btn.innerHTML = "Delete";
-	btn.onclick = removeParent;
-
 	// Create "li" element as text node
 
-	var li = document.createElement("li");
+	li = document.createElement("li");
 	li.appendChild(document.createTextNode(input.value));
-
-	// Adds delete button to created li element
-
-	li.appendChild(btn);
 
 	// Adds created "li" element to "ul" element
 
 	ul.appendChild(li);
 
+	// Adds delete button to newly created li
+	
+	delButton = delBtn();
+	li.appendChild(delButton);
+	
 	// Sets value of created element to input value
 
 	input.value = "";
