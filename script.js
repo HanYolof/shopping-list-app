@@ -15,19 +15,20 @@ function removeParent(e) {
    e.target.parentNode.remove();
 }
 
-function delBtn(e) {
+// New delete button function
+
+function addDelButtonToListItem(listitem){
+	
 	btn = document.createElement("button");
 	btn.innerHTML = "Delete";
 	btn.onclick = removeParent;
+	listitem.appendChild(btn)
 	return btn;
 }
 
-function addDelButtonToListItem(listitem){
-	delButton = delBtn();
-	listitem.appendChild(delButton);
-}
+// New li loop
 
-li.forEach(addDelButtonToListItem)
+li.forEach(addDelButtonToListItem);
 
 function createListElement() {
 	li = document.createElement("li");
