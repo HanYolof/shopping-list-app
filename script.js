@@ -22,16 +22,17 @@ function delBtn(e) {
 	return btn;
 }
 
-li.forEach(function(delbtn){
+function addDelButtonToListItem(listitem){
 	delButton = delBtn();
-	delbtn.appendChild(delButton);
-})
+	listitem.appendChild(delButton);
+}
+
+li.forEach(addDelButtonToListItem)
 
 function createListElement() {
 	li = document.createElement("li");
 	li.appendChild(document.createTextNode(input.value));
-	delButton = delBtn();
-	li.appendChild(delButton);
+	addDelButtonToListItem(li);
 	ul.appendChild(li);
 	input.value = "";
 }
